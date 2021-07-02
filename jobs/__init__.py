@@ -10,7 +10,9 @@ def create_app():
 
     from . import db
     db.init_app(app)
-    
+
+    from .import jobs
+    app.register_blueprint(jobs.bp)
     @app.route("/")
     def main():
         conn=db.get_db()
@@ -23,7 +25,7 @@ def create_app():
         quote, author = random.choice(quotes)
 
         #return render_template('index.html', quote=quote, author=author, count=count, date = crawl_date)
-        return render_template('index.html',quote=quote)
+        return render_template('index.html',quote=quote,author=author,count=count)
 
     
     from . import crawler

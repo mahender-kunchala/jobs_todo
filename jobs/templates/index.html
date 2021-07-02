@@ -13,35 +13,28 @@
     <title>Jobs</title>
   </head>
   <body>
+  <main class="main">
+  <aside class="sidebar">
+    <nav class="nav">
+      <ul>
+        <li class="active"><a href="#">Welcome</a></li>
+        <li><a href="#">Who We Are</a></li>
+        <li><a href="#">What We Do</a></li>
+        <li><a href="#">Get In Touch</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <section class="twitter">
+    <div class="container">
+      <p id="quote">{{quote}}</p>
+      <address id="author">{{author}}</address>
+      <a href="#">{{count}} jobs available</a>
+    </div>
+  </section>
+</main>
     
-<div id="mainContentArea">
-	<div id="contentBox">
-        <div id="title">jobs</div>
-        
-        <div id="linkGroup">
-            <div class="link"><a href="./">Home</a></div>
-            <div class="link"><a href="./">About</a></div>
-            <div class="link"><a href="./">Portfolio</a></div>
-            <div class="link"><a href="./">lyrics</a></div>
-           
-        </div>
-        <div id="blueBox"> 
-          <div id="header"></div>
-          {% block body %}
 
-
-	  <h1>{quote}</h1>
-
-	  
-	  
-          {% endblock %} 
-        
-
-           
-            <div id="footer"><a href="http://www.aszx.net">web development</a> by <a href="http://www.bryantsmith.com">bryant smith</a></div>
-        </div>
-	</div>
-</div>
   </body>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
