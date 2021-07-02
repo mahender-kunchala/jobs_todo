@@ -11,9 +11,14 @@ def alljobs():
     jobs=cursor.fetchall()
     return render_template("jobs/jobslist.html",jobs=jobs)
 @bp.route("/<jid>")
-def jobdetails():
+def jobdetails(jid):
     conn=db.get_db()
     cursor=conn.cursor()
-    cursor.execute(f"select jd_text from openings where id = {jidb}")
-    info =cursor.fetcone()
-    return render_template("jobs/jobdetails.html",info=info)
+    cursor.execute(f"select title,company_name,jd_text from openings where id = {jid};")
+    title,company,info =cursor.fetchone()
+    if int(jid)==1:
+        prev=None
+    else:
+        prev=int(jid)-1
+    nxt=int(jid)+1
+    return render_template("jobs/jobdetails.html",info=info,nxt=nxt,prev=prev,title=title,company=company)

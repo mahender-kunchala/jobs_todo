@@ -1,15 +1,11 @@
-<html>
-  <head>
-    <title>Jobs page</title>
-  </head>
-  <body>
+{% extends "index.html" %}
+{% block body %}
     <h1> Welcome to the jobs page </h1>
     <ol>
       {% for id,title, company_name in jobs%}
       <li>
-     <a href="./{{id}}"> {{company_name}}:: {{title}}
+     <a  class = "button" href="./{{id}}"> {{company_name}}:: {{title}}
       </li>
       {% endfor %}
     </ol>
-  </body>
-</html>
+  {% endblock %}

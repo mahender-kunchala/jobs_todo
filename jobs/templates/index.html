@@ -27,9 +27,11 @@
 
   <section class="twitter">
     <div class="container">
+      {% block body %}
       <p id="quote">{{quote}}</p>
       <address id="author">{{author}}</address>
-      <a href="#">{{count}} jobs available</a>
+      <a href="./jobs">{{count}} jobs available</a>
+      {% endblock %}
     </div>
   </section>
 </main>
