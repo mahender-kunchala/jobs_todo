@@ -1,16 +1,31 @@
-<html>
-  <head>
-    <title>Jobs page</title>
-  </head>
-  <body>
-    <h1> Welcome to the jobs info page </h1>
-    <h2>{{title}}</h2>
-    <h2>{{company}}</h2>
+{% extends "index.html" %}
+{% block body%}
+{% if title%}
+{% if prev%}
 
-    <p>{{info}}</p>
-    <a href="./{{prev}}">previous</a>
-    <a href="./{{nxt}}">next</a>
+<a  class= "btn btn-primary"  href="./{{prev}}">PREVIOUS</a>
+{% endif %}
 
+    <a class= "btn btn-primary"  href="./">ALL</a>
+    {% if prev%}
+    <a class= "btn btn-primary" href="./{{nxt}}">NEXT</a>
+    {% endif%}
     
-  </body>
-</html>
+    <h3>{{company}}</h3>
+    <h4 class="text-muted">{{title}}</h4>
+    <span class="badge bg-{{cls}}">{{status}}</span>
+    <small class="text-muted">({{crawled_on}})</small>
+
+<p>{{info}}</p>
+<p>
+  <a class="btn btn-primary" href="{{url_for('jobs.edit_job', jid=jid)}}">Edit this job</a>
+</p><p>
+  
+
+{% else %}
+<h1> Sorry,that's not a valid job id.</h1>
+<p> How about going <a href="{{url_for('jobs.alljobs')}}">back</a>
+</p>
+
+{% endif %}
+    {% endblock%}
